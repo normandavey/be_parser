@@ -1,0 +1,1 @@
+The human genome fasta file shold be placed in this directory with the name Homo_sapiens.GRCh38.dna.primary_assembly.fa
