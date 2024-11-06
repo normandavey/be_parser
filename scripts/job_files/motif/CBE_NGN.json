@@ -1,0 +1,27 @@
+{
+    "screen_name":"CBE_NGN",
+    "editor_type":"CBE",
+    "counts_file":"/home/be_data/ngs_counts/CBE_NGN.count.txt",
+    "region_annotation_file":"/home/be_data/library_design/motif.regions.tdt",
+    "guide_annotation_file":"/home/be_data/library_design/motif.genescript.gRNA.tdt",
+    "guide_mapping_file":"/home/be_data/mapping/BEv1-NGN-NGG-unique.csv",
+    "data_directory":"/home/be_results/CBE_NGN/",
+    "output_include_controls":false,
+    "output_include_region_annotation_json":true,
+    "output_include_protein_annotation_json":false,
+    "output_include_protein_plots":false,
+    "make_region_sliding_window":false,
+    "design":{
+        "datapoint_labels":{
+            "HAP1_0_pLib34_rep1_S10": {"timepoint":0,"replicate":1},
+            "HAP1_0_pLib34_rep2_S11": {"timepoint":0,"replicate":2},
+            "HAP1_0_pLib34_rep3_S12": {"timepoint":0,"replicate":3},
+            "HAP1_18_pLib34_rep1_S13": {"timepoint":18,"replicate":1},
+            "HAP1_18_pLib34_rep2_S14": {"timepoint":18,"replicate":2},
+            "HAP1_18_pLib34_rep3_S15": {"timepoint":18,"replicate":3},
+            "HAP1_21_pLib34_rep1_S16": {"timepoint":21,"replicate":1},
+            "HAP1_21_pLib34_rep2_S17": {"timepoint":21,"replicate":2},
+            "HAP1_21_pLib34_rep3_S18": {"timepoint":21,"replicate":3}
+        }
+    }
+}

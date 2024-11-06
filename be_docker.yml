@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  library_designer_docker:
+    build:
+      context: ./be_docker/
+    volumes:
+      - ./scripts/:/home/scripts/
+      - ./be_annotation_data/:/home/be_annotation_data/
+      - ./be_data/:/home/be_data/
+      - ./be_results/:/home/be_results/
+    command: bash -c 'tail -f /dev/null'
+   
