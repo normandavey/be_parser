@@ -37,9 +37,9 @@ Once the docker file is running the docker file can be accessed using the follow
 docker exec -it be_docker-1 bash
 # if be_docker-1 container does not exists use the command 'docker container ls' to find the name of the container on your system
 ```
-The Docker will start an Ubuntu container with the required dependencies preinstalled with an open bash. 
+Docker will start an Ubuntu container with the required dependencies preinstalled with an open bash. 
 
-If running for the first time, the fasta file must be processed with makeblastdb before running the pipeline.
+If running for the first time, the human genome fasta file must be processed with makeblastdb before running the pipeline.
 ```
 makeblastdb -dbtype nucl  -in "/home/be_annotation_data/genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa" -out GRCh38_dna_primary_assembly -parse_seqids
 ```
