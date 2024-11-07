@@ -46,6 +46,11 @@ makeblastdb -dbtype nucl  -in "/home/be_annotation_data/genomes/Homo_sapiens.GRC
 
 The processing pipeline can then be run using supplied runBaseEditingScreenParser.py
 ```
+#Test by running
+python run_be_screen_pipeline.py --job_file ./job_files/motif/P53.guides.test.json
+# This will pull data for one protein and should complete if all parts of the pipeline are correctly installed.
+
+#Test by running 
 python run_be_screen_pipeline.py --job_file ./job_files/motif/ABE_NGN.json 
 ```
 
@@ -58,3 +63,8 @@ There are four jobfile, one for each subscreen:
 ```
 
 The scripts dowload a large amount of data and require an active internet connection.
+
+Results will appear in 
+```
+./be_results/
+```
