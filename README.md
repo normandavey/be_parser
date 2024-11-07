@@ -1,7 +1,7 @@
 # Motif Base Editing Screen
 
 ### Overview:
-This repository includes the core pipeline for analysing NGS count data from the Motif Dependency Map described in: 
+This repository includes the pipeline for analysing NGS count data from the Motif Dependency Map described in: 
 
 **“A proteome-wide dependency map of protein interaction motifs”** Ambjørn SM, Meeusen B,Kliche J, Wang L, Garvanska DH, Kruse T, Mendez BL, Mann M, Mailand N, Hertz EPT*, Davey NE*, Nilsson J*. 
 *bioRxiv DOI:2024.09.11.612445;*
@@ -20,10 +20,8 @@ The pipelines requires the EnsEMBL Homo_sapiens GRCh38 in fasta format. The file
 https://ftp.ensembl.org/pub/release-113/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 ```
 
-Unzip the fasta file in the folder:
-```
-./be_annotation_data/genomes/
-```
+Unzip the fasta file in the ./be_annotation_data/genomes/ folder. 
+
 
 #### Running the pipeline:
 
@@ -64,7 +62,15 @@ There are four jobfile, one for each subscreen:
 ./job_files/motif/CBE_NGG.json
 ```
 
-The scripts dowload a large amount of data and require an active internet connection.
+This pipeline will perform several tasks including processing the NGS count data, annotating the gRNAs and motif regions, and calculating enrichment statistics. The scripts download a large amount of data and require an active internet connection. 
+
+The data fo gRNA is processed to define significantly changing gRNAs using a limma statistical analysis . Next generation sequencing data from the day 0 and 18 samples are converted to gRNA sequencing counts by mapping to motif-targeting and control gRNAs (essential splice sites, non-targeting , intergenic) in the motif dependency map gRNA library design. Three replicates were collected per time point, resulting in three data points per gRNA per time point. 
+
+Low-abundance gRNAs are removed (counts <30). The gRNAs are mapped to the genome to find non-specific gRNAs with off-target genome binding sites. Then gRNAs with 5 or more off-target matches in the genome were removed from downstream analysis. 
+
+Raw sequencing counts are normalised per sample to log2 transcripts per million (log2TPM). The log2TPM values were compared using limma, resulting in fold change (FC) and p-values for each gRNA. These p-values were compared to the positive and negative controls, and a p-value cut-off of 0.01 showed a false positive rate of ~1%. Consequently, a p-value of less than 0.01 was set as the threshold considered to have an effect on cell proliferation. 
+
+Next, the gRNAs mapping to each motif-containing region were analysed to define groups of significantly changing gRNAs. The main metrics used was the number of unique significant gRNAs per motif across all screens. Per screen, the direction of the effect on proliferation was quantified as the mean fold change of the gRNAs to define depletion or enrichment, and the fold change of the gRNAs for a region were compared against the fold change for all gRNAs in the analysis using a Mann–Whitney U test to calculate an enrichment or depletion p-value. 
 
 Results will appear in 
 ```
