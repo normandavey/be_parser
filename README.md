@@ -1,7 +1,7 @@
 # Motif Base Editing Screen
 
 ### Overview:
-This repository includes the pipeline for analysing NGS count data from the Motif Dependency Map described in: 
+This repository includes the core pipeline for analysing NGS count data from the Motif Dependency Map described in: 
 
 **“A proteome-wide dependency map of protein interaction motifs”** Ambjørn SM, Meeusen B,Kliche J, Wang L, Garvanska DH, Kruse T, Mendez BL, Mann M, Mailand N, Hertz EPT*, Davey NE*, Nilsson J*. 
 *bioRxiv DOI:2024.09.11.612445;*
@@ -20,8 +20,10 @@ The pipelines requires the EnsEMBL Homo_sapiens GRCh38 in fasta format. The file
 https://ftp.ensembl.org/pub/release-113/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 ```
 
-Unzip the fasta file in the ./be_annotation_data/genomes/ folder. 
-
+Unzip the fasta file in the folder:
+```
+./be_annotation_data/genomes/
+```
 
 #### Running the pipeline:
 
