@@ -414,7 +414,7 @@ class guideAnnotation():
 		guide_counter = 0
 
 		accessions = list(self.options['protein_gRNAs'].keys())
-		
+		accessions.sort()
 		for accession in accessions:
 
 			logger.debug("#" + accession)
