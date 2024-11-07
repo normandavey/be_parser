@@ -56,7 +56,15 @@ class guideAnnotation():
 			}
 		})
 
+		self.options['genomes_path'] = os.path.join(self.options['data_path'],"genomes")
+		self.options['genomes_guides_path'] = os.path.join(self.options['data_path'],"genomes","gRNA")
 		self.options['genomes_guides_mutation_annotation_path'] = os.path.join(self.options['data_path'],"genomes","gRNA","gRNA_mutation_annotation")
+
+		if not os.path.exists(self.options['genomes_guides_path']):
+			os.mkdir(self.options['genomes_guides_path'])
+
+		if not os.path.exists(self.options['genomes_guides_path']):
+			os.mkdir(self.options['genomes_guides_path'])
 
 		if not os.path.exists(self.options['genomes_guides_mutation_annotation_path']):
 			os.mkdir(self.options['genomes_guides_mutation_annotation_path'])
@@ -406,7 +414,7 @@ class guideAnnotation():
 		guide_counter = 0
 
 		accessions = list(self.options['protein_gRNAs'].keys())
-		accessions.sort()
+		
 		for accession in accessions:
 
 			logger.debug("#" + accession)

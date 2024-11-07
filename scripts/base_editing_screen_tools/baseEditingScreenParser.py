@@ -1137,7 +1137,7 @@ class baseEditingParser():
 					elif self.data[self.options['screen_name']]['ngs_data'][guide_id]['control_type'] in self.options['negative_control_labels']:
 						negative_controls.append(self.data[self.options['screen_name']]['ngs_data'][guide_id]['limma_scores']['log_fold_change'])
 					else:
-						logger.error([len(positive_controls),len(negative_controls),self.data[self.options['screen_name']]['ngs_data'][guide_id]['control_type'], self.options['positive_control_labels'],self.options['negative_control_labels']])
+						logger.debug([len(positive_controls),len(negative_controls),self.data[self.options['screen_name']]['ngs_data'][guide_id]['control_type'], self.options['positive_control_labels'],self.options['negative_control_labels']])
 				else:
 					background.append(self.data[self.options['screen_name']]['ngs_data'][guide_id]['limma_scores']['log_fold_change'])
 
@@ -3119,7 +3119,8 @@ class baseEditingParser():
 			else:
 				baseEditingControlPlotterObj.plot_control_roc_curves()
 		except:
-			logging.error('Skipping plot_control_roc_curves')		
+			logging.error('Skipping plot_control_roc_curves')	
+			raise	
 			
 	###------------------------######------------------------######------------------------###
 	###------------------------######------------------------######------------------------###

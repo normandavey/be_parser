@@ -15,6 +15,7 @@ try:
 	from structure_atomic_coordinate_utilities import structureAtomicCoordinateUtilities
 except:
 	print("Skipping structure_atomic_coordinate_utilities import")
+	raise
 	
 import queryRunner
 
@@ -28,11 +29,13 @@ try:
 	from dssp_utilities import dsspUtilities
 except:
 	print("Skipping dssp_utilities import")
+	raise
 
 try:	
 	from simple_mapping_and_accessibility import simpleMappingAccessibilityUtilities
 except:
 	print("Skipping simple_mapping_and_accessibility import")
+	raise
 
 try:
 	from Bio.PDB import PDBParser

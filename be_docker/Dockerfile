@@ -37,10 +37,10 @@ RUN pip install biopython>=1.81
 RUN pip install pytest
 RUN pip install dataset
 
-RUN pip install numpy==1.23.1
-RUN pip install scipy>=1.9.0
 RUN pip install futures
-RUN pip install scikit-learn==1.2.2
+RUN pip install numpy
+RUN pip install scipy>=1.9.0
+RUN pip install scikit-learn
 RUN pip install unidecode
 
 RUN pip install matplotlib>=3.5.3
@@ -52,10 +52,11 @@ RUN python3 -m pip install --user svg.py
 RUN python3 -m pip install --user cairosvg
 
 #### DSSP
-WORKDIR     /usr/bin
-RUN wget https://github.com/PDB-REDO/dssp/releases/download/v4.4.0/mkdssp-4.4.0-linux-x64
-RUN chmod a+x mkdssp-4.4.0-linux-x64
-RUN ln -s mkdssp-4.4.0-linux-x64 mkdssp
+#WORKDIR     /usr/bin
+#RUN wget https://github.com/PDB-REDO/dssp/releases/download/v4.4.0/mkdssp-4.4.0-linux-x64
+#RUN chmod a+x mkdssp-4.4.0-linux-x64
+#RUN ln -s mkdssp-4.4.0-linux-x64 mkdssp
+RUN apt-get install -y dssp
 
 #### BLAST
 RUN apt-get install -y ncbi-blast+
