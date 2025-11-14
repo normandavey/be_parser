@@ -32,7 +32,7 @@ docker-compose -f be_docker.yml up --detach
 docker compose -f be_docker.yml up --detach 
 ```
 
-Once the docker file is running the docker file can be accessed using the following command:
+Once the docker file is running the docker file can be accessed using the following command (Docker will download the required software on the first run which may take up to 10 minutes):
 ```
 docker exec -it be_docker-1 bash
 # if be_docker-1 container does not exists use the command 'docker container ls' to find the name of the container on your system
@@ -72,7 +72,13 @@ Raw sequencing counts are normalised per sample to log2 transcripts per million 
 
 Next, the gRNAs mapping to each motif-containing region were analysed to define groups of significantly changing gRNAs. The main metrics used was the number of unique significant gRNAs per motif across all screens. Per screen, the direction of the effect on proliferation was quantified as the mean fold change of the gRNAs to define depletion or enrichment, and the fold change of the gRNAs for a region were compared against the fold change for all gRNAs in the analysis using a Mann–Whitney U test to calculate an enrichment or depletion p-value. 
 
-Results will appear in 
+After ~10 minutes the results will appear in 
 ```
 ./be_results/
 ```
+
+*Tested with:*
+
+Hardware/Operating system: Apple M2 Pro, 32 GB RAM, Docker version 24.0.6 running Ubuntu 22.04
+
+Dependency versions: biopython 1.81, seaborn 0.11.2, matplotlib 3.7.5, numpy 1.24.4, scipy 1.10.1, pandas 2.0.3, rpy2 3.5.4 in python 3.7.17 ; limma 3.60.6 in R version 3.6.3; 
